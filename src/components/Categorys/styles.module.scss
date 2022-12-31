@@ -1,0 +1,74 @@
+@import '../../../styles/variables.module.scss';
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 96px;
+    margin-bottom: 140px;
+}
+
+.cardCategory{
+    width: 320px;
+    height: 424px;
+    background-color: $battleship;
+    margin: 0px 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'almarai';
+    border-radius: 15px;
+    box-shadow: 7px 7px 3px $slate;
+    cursor: pointer;
+    
+
+    h2{
+        font-size: 32px;
+        font-weight: 200;
+        color: $silver;
+    }
+
+    &:hover{
+        animation: ScaleUp 0.5s forwards;
+    }
+    &:not(:hover){
+        animation: ScaleDown 0.5s forwards;
+        filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+    }
+}
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #422C2C 68.75%);;
+    width: 264px;
+    height: 264px;
+    border-radius: 50%;
+    position: relative;
+
+    img{
+        position: absolute;
+        border-bottom-right-radius: 121px;
+        border-bottom-left-radius: 121px;
+        bottom: 5px;
+    }
+}
+
+@keyframes ScaleUp {
+    0% {
+        scale: 1;
+    }
+    100% {
+        scale: 1.1;
+    }
+}
+@keyframes ScaleDown {
+    0% {
+        scale: 1.1;
+    }
+    100% {
+        scale: 1;
+    }
+}

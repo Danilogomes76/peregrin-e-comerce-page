@@ -1,0 +1,80 @@
+@import '../../../styles/variables.module.scss';
+
+.container{
+    background-color: $space;
+    color: $silver;
+    font-family: 'inter';
+
+    p{
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+}
+
+.nav{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 86px;
+    ul{
+        list-style: none;
+    }
+
+    li{
+        margin-bottom: 15px;
+        opacity: 0.6;
+    }
+}
+
+
+.social{
+    padding: 54px 26px 26px 26px;
+    display: flex;
+    font-size: 20px;
+    justify-content: space-evenly;
+    p{
+        font-weight: 100;
+    }
+}
+
+.socialIcons{
+    img{
+        margin-left: 24px;
+    }
+}
+
+.formEmail{
+    h2{
+        font-family: 'almarai';
+        font-size: 42px;
+        font-weight: lighter;
+    
+    }
+    p{
+        font-size: 17px;
+        font-weight: 100;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    
+    }
+    input{
+        padding: 24px;
+        width: 312px;
+        background-color: $sarg;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border: none;
+        color: $silver;
+        font-size: 20px;
+    }
+    button{
+        height: 70px;
+        width: 115px;
+        background-color: $battleship;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}

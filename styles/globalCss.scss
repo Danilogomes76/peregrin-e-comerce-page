@@ -1,0 +1,15 @@
+@import './variables.module.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: $bg;
+}
+
+a {
+    text-decoration: none;
+    color: inherit,
+}
