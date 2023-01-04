@@ -9,5 +9,5 @@ export interface ApiResponse {
     rate: number;
     count: number;
   };
-  discountPercent?: number;
+  priceBeforeDiscount?: number | string;
 }

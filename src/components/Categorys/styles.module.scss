@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     margin-top: 96px;
+    gap: 17px;
     margin-bottom: 140px;
 }
 
@@ -11,7 +12,6 @@
     width: 320px;
     height: 424px;
     background-color: $battleship;
-    margin: 0px 17px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -61,12 +61,12 @@
         scale: 1;
     }
     100% {
-        scale: 1.1;
+        scale: 1.025;
     }
 }
 @keyframes ScaleDown {
     0% {
-        scale: 1.1;
+        scale: 1.025;
     }
     100% {
         scale: 1;

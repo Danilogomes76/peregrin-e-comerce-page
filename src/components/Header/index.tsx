@@ -41,8 +41,9 @@ const Header: React.FC = () => {
             type="text"
             onChange={e => setValue(e.target.value)}
             value={value}
+            placeholder="Search a product"
           />
-          <Link href={`/teste?q=${value}`}>
+          <Link href={`/searchedItems?q=${value}`}>
             <button>
               <Image src={lupaImg} alt="lupaSearchImg" width={15} height={15} />
             </button>

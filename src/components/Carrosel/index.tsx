@@ -20,13 +20,13 @@ const Carrosel: React.FC = () => {
           showThumbs={false}
         >
           <div>
-            <Image src={carrosel_2} width={1900} alt="carrosel1" />
+            <Image src={carrosel_2} width={1440} alt="carrosel1" />
           </div>
           <div>
-            <Image src={carrosel_1} width={1900} alt="carrosel2" />
+            <Image src={carrosel_1} width={1440} alt="carrosel2" />
           </div>
           <div>
-            <Image src={carrosel_3} width={1900} alt="carrosel3" />
+            <Image src={carrosel_3} width={1440} alt="carrosel3" />
           </div>
         </Carousel>
       </section>

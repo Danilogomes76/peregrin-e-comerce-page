@@ -1,30 +1,28 @@
 import axios from 'axios';
+import Image from 'next/image';
 import Card from '../src/components/Card';
+import logo from '../src/images/logo.svg';
 import { ApiResponse } from '../src/interface/apiInterface';
+import styles from '../styles/pageStyles/searchedItems.module.scss';
 
 interface Props {
   items: Array<ApiResponse>;
 }
 
-function Teste({ items }: Props) {
+function SearchItems({ items }: Props) {
   return (
-    <div>
+    <main className={styles.container}>
       {items.length == 0 ? (
-        <h1>Item não encontrado</h1>
+        <section className={styles.noItems}>
+          <h1>Item não encontrado</h1>
+          <Image width={400} src={logo} alt={'logo'} />
+        </section>
       ) : (
-        items.map(item => (
-          <Card
-            key={item.id}
-            title={item.title}
-            image={item.image}
-            price={item.price}
-            category={item.category}
-            rating={item.rating}
-            id={item.id}
-          />
-        ))
+        <section className={styles.searchedItems}>
+          <Card state={items} />
+        </section>
       )}
-    </div>
+    </main>
   );
 }
 
@@ -50,4 +48,4 @@ export async function getServerSideProps(context: any) {
   };
 }
 
-export default Teste;
+export default SearchItems;

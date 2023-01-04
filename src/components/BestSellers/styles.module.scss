@@ -3,13 +3,12 @@
     flex-direction: column;
     align-items: center;
     margin-top: 53px; 
+    justify-content: center;
     h1{
         font-size: 47px;
         font-family: 'inter';
         font-weight: lighter;
         margin-bottom: 35px;
-        margin-left: 62px;
-        margin-right: 62px;
     }
 }
 
@@ -19,4 +18,5 @@
 
 .bestSellerCards{
     display: flex;
+    gap: 60px;
 }

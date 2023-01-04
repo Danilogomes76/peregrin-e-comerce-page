@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import { ApiResponse } from '../../interface/apiInterface';
 import Card from '../Card';
 import divisorLeft from '../../images/divider/divisor_left.svg';
 import divisorRight from '../../images/divider/divisor_right.svg';
@@ -20,20 +19,7 @@ const BestSellers: React.FC<Props> = ({ dataItems }: Props) => {
         <Image src={divisorRight} alt={'divisorRight'} />
       </div>
       <div className={styles.bestSellerCards}>
-        {dataItems.map((item: ApiResponse) => {
-          return (
-            <Card
-              id={item.id}
-              key={item.id}
-              image={item.image}
-              price={item.price}
-              title={item.title}
-              rating={item.rating}
-              category={item.category}
-              discountPercent={10}
-            />
-          );
-        })}
+        <Card state={dataItems} />
       </div>
     </section>
   );

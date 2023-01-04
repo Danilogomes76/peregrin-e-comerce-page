@@ -1,8 +1,11 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Image from 'next/image';
 import { ApiResponse } from '../../../src/interface/apiInterface';
+import styles from '../../../styles/pageStyles/itemPage.module.scss';
+import starImg from '../../../src/images/star.svg';
 
 interface Props {
   dataItem: ApiResponse;
@@ -38,18 +41,83 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 const Product = ({ dataItem }: Props) => {
+  const [sku, setSku] = useState(0);
+  const [haveSize, setHaveSize] = useState(true);
+
+  useEffect(() => setSku(Math.round(Math.random() * 10000000)), []);
+  useEffect(() => {
+    dataItem.category == 'electronics' ? setHaveSize(false) : haveSize;
+    dataItem.category == 'jewelery' ? setHaveSize(false) : haveSize;
+  }, [dataItem.category, haveSize]);
+
+  const starsNumber = (): Array<string> | undefined => {
+    const rate = dataItem.rating?.rate;
+    if (typeof rate == 'undefined') return;
+    const stars = Math.round(rate);
+    return Array(stars).fill('star');
+  };
   return (
     <>
       <Head>
         <title>{dataItem.title}</title>
       </Head>
-      <h1>{dataItem.title}</h1>
-      <Image
-        src={dataItem.image}
-        alt={dataItem.title}
-        width={200}
-        height={200}
-      />
+      <main>
+        <section className={styles.container}>
+          <div>
+            <Image
+              src={dataItem.image}
+              alt={dataItem.title}
+              width={635}
+              height={635}
+            />
+          </div>
+          <div className={styles.textContainer}>
+            <div className={styles.priceContainer}>
+              <h1>{dataItem.title}</h1>
+              <div className={styles.classification}>
+                <p>SKU: {sku}</p>
+                <div>
+                  {starsNumber()?.map((item: any, index: number) => {
+                    return <Image key={index} src={starImg} alt={'starIcon'} />;
+                  })}
+                </div>
+                <p> &#40;{dataItem.rating?.count}&#41;</p>
+              </div>
+              <p>R${dataItem.price}</p>
+            </div>
+            {haveSize && (
+              <div className={styles.sizeContainer}>
+                <p>Size</p>
+                <div>
+                  <button>P</button>
+                  <button>M</button>
+                  <button>G</button>
+                  <button>GG</button>
+                </div>
+              </div>
+            )}
+            <div className={styles.addCartContainer}>
+              <p>Sent by</p>
+              <div className={styles.sendContainer}>
+                <div>
+                  <p className={styles.disaled}>International</p>
+                  <p className={styles.enabled}>National Shipping</p>
+                </div>
+                <p>
+                  This is a <b>National Shipping</b> product. Different
+                  marketplaces will have different shipping rates, delivery
+                  times and activities.
+                </p>
+              </div>
+            </div>
+            <div className={styles.descriptionContainer}>
+              <p className={styles.descriptionTitle}>Description</p>
+              <p>{dataItem.description}</p>
+            </div>
+            <button className={styles.addToCart}>ADD TO CART</button>
+          </div>
+        </section>
+      </main>
     </>
   );
 };

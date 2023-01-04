@@ -10,7 +10,6 @@ interface Props {
 }
 
 const ProductsItems: React.FC<Props> = ({ data, rangeValue }: Props) => {
-  const discount = 1;
   const filtredProducts = data.filter(
     (product: ApiResponse) => product.price < rangeValue,
   );
@@ -21,35 +20,7 @@ const ProductsItems: React.FC<Props> = ({ data, rangeValue }: Props) => {
         <Image className={styles.logo} width={300} src={logo} alt={'logo'} />
       ) : (
         <div className={styles.productItems}>
-          {rangeValue < 1000
-            ? filtredProducts.map((item: ApiResponse) => {
-                return (
-                  <Card
-                    key={item.id}
-                    title={item.title}
-                    image={item.image}
-                    price={item.price}
-                    category={item.category}
-                    rating={item.rating}
-                    id={item.id}
-                    discountPercent={discount}
-                  />
-                );
-              })
-            : data.map((item: ApiResponse) => {
-                return (
-                  <Card
-                    key={item.id}
-                    title={item.title}
-                    image={item.image}
-                    price={item.price}
-                    category={item.category}
-                    rating={item.rating}
-                    id={item.id}
-                    discountPercent={discount}
-                  />
-                );
-              })}
+          <Card state={rangeValue < 1000 ? filtredProducts : data} />
         </div>
       )}
     </section>
