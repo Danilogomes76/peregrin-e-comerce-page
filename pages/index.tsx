@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import BestSellers from '../src/components/BestSellers';
 import Carrosel from '../src/components/Carrosel';
@@ -23,7 +24,7 @@ const Home: React.FC<Props> = ({ data }: Props) => {
   );
 };
 
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await axios.get(
     'https://fakestoreapi.com/products?limit=4',
     {
@@ -35,6 +36,7 @@ export async function getServerSideProps() {
     props: {
       data,
     },
+    revalidate: 60,
   };
-}
+};
 export default Home;

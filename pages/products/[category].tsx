@@ -40,6 +40,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       dataItems,
     },
+    revalidate: 60,
   };
 };
 

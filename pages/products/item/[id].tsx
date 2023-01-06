@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -6,6 +7,7 @@ import Image from 'next/image';
 import { ApiResponse } from '../../../src/interface/apiInterface';
 import styles from '../../../styles/pageStyles/itemPage.module.scss';
 import starImg from '../../../src/images/star.svg';
+import { useStarsNumber } from '../../../src/hook/useStar';
 
 interface Props {
   dataItem: ApiResponse;
@@ -37,6 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       dataItem,
     },
+    revalidate: 60 * 5,
   };
 };
 
@@ -45,17 +48,15 @@ const Product = ({ dataItem }: Props) => {
   const [haveSize, setHaveSize] = useState(true);
 
   useEffect(() => setSku(Math.round(Math.random() * 10000000)), []);
+
   useEffect(() => {
-    dataItem.category == 'electronics' ? setHaveSize(false) : haveSize;
-    dataItem.category == 'jewelery' ? setHaveSize(false) : haveSize;
+    dataItem.category == 'electronics' || dataItem.category == 'jewelery'
+      ? setHaveSize(false)
+      : haveSize;
   }, [dataItem.category, haveSize]);
 
-  const starsNumber = (): Array<string> | undefined => {
-    const rate = dataItem.rating?.rate;
-    if (typeof rate == 'undefined') return;
-    const stars = Math.round(rate);
-    return Array(stars).fill('star');
-  };
+  const starsNumber = useStarsNumber(dataItem.rating?.rate);
+
   return (
     <>
       <Head>
@@ -77,7 +78,7 @@ const Product = ({ dataItem }: Props) => {
               <div className={styles.classification}>
                 <p>SKU: {sku}</p>
                 <div>
-                  {starsNumber()?.map((item: any, index: number) => {
+                  {starsNumber?.map((item: any, index: number) => {
                     return <Image key={index} src={starImg} alt={'starIcon'} />;
                   })}
                 </div>
