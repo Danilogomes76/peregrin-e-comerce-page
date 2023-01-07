@@ -1,13 +1,12 @@
 export interface ApiResponse {
-  category?: string;
-  description?: string;
-  id?: number;
-  title: string;
+  category: string;
+  description: string;
+  id: number;
   image: string;
   price: number;
-  rating?: {
+  rating: {
     rate: number;
     count: number;
   };
-  priceBeforeDiscount?: number | string;
+  title: string;
 }

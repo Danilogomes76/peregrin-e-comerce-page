@@ -79,13 +79,15 @@
     justify-content: space-between;
     margin-right: 26px;
 }
-.headerIcons::before{
+
+.cart{
+    display: flex;
+    justify-content: flex-end;
+}
+.cart::before{
     content: attr(data-count);
     position: absolute;
-    top: 1.5em;
-    right: 4.5em;
     width: 1.2em;
-    height: 1.2em;
     display: flex;
     justify-content: center;
     align-items: center;

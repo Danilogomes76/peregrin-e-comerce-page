@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { ApiResponse } from '../../../src/interface/apiInterface';
 import styles from '../../../styles/pageStyles/itemPage.module.scss';
 import starImg from '../../../src/images/star.svg';
-import { useStarsNumber } from '../../../src/hook/useStar';
+import { useStarsNumber } from '../../../src/hooks/useStar';
 
 interface Props {
   dataItem: ApiResponse;

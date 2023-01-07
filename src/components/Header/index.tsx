@@ -6,9 +6,11 @@ import userImg from '../../images/user.svg';
 import lupaImg from '../../images/lupa.svg';
 import styles from './styles.module.scss';
 import Link from 'next/link';
+import { useAppSelector } from '../../hooks/reduceHooks';
 
 const Header: React.FC = () => {
   const [value, setValue] = useState('');
+  const cart = useAppSelector(state => state.cart);
 
   return (
     <header className={styles.container}>
@@ -49,14 +51,16 @@ const Header: React.FC = () => {
             </button>
           </Link>
         </form>
-        <div className={styles.headerIcons} data-count={1}>
-          <Image
-            className={styles.cart}
-            src={cartImg}
-            alt="cart"
-            width={36}
-            height={36}
-          />
+        <div className={styles.headerIcons}>
+          <Link className={styles.cart} data-count={cart.length} href="/cart">
+            <Image
+              className={styles.cart}
+              src={cartImg}
+              alt="cart"
+              width={36}
+              height={36}
+            />
+          </Link>
           <Image src={userImg} alt="user" width={36} height={36} />
         </div>
       </div>

@@ -4,12 +4,16 @@ import heartImg from '../../images/heart.svg';
 import starImg from '../../images/star.svg';
 import Link from 'next/link';
 import { ApiResponse } from '../../interface/apiInterface';
+import { useAppDispatch } from '../../hooks/reduceHooks';
+import { addToCart } from '../../store/reducers/cartReducer';
 
 interface Props {
   state: any;
 }
 
 const Card: React.FC<Props> = ({ state }: Props) => {
+  const dispatch = useAppDispatch();
+
   const discount = 0;
 
   return (
@@ -62,7 +66,9 @@ const Card: React.FC<Props> = ({ state }: Props) => {
                   {priceBeforeDiscount != '' ? priceBeforeDiscount : card.price}
                   {priceBeforeDiscount != '' && <s>${card.price}</s>}
                 </h3>
-                <button>Add to cart</button>
+                <button onClick={() => dispatch(addToCart(card))}>
+                  Add to cart
+                </button>
               </div>
             </div>
           </div>
