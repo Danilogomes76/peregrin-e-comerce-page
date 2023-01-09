@@ -52,7 +52,11 @@ const Header: React.FC = () => {
           </Link>
         </form>
         <div className={styles.headerIcons}>
-          <Link className={styles.cart} data-count={cart.length} href="/cart">
+          <Link
+            className={styles.cart}
+            data-count={cart.data.length > 0 ? cart.data.length : ''}
+            href="/cart"
+          >
             <Image
               className={styles.cart}
               src={cartImg}

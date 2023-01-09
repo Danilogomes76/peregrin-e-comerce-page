@@ -66,7 +66,9 @@ const Card: React.FC<Props> = ({ state }: Props) => {
                   {priceBeforeDiscount != '' ? priceBeforeDiscount : card.price}
                   {priceBeforeDiscount != '' && <s>${card.price}</s>}
                 </h3>
-                <button onClick={() => dispatch(addToCart(card))}>
+                <button
+                  onClick={() => dispatch(addToCart({ ...card, quantity: 1 }))}
+                >
                   Add to cart
                 </button>
               </div>
