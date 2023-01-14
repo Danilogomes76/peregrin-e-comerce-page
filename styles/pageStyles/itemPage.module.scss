@@ -68,9 +68,9 @@
         border-radius: 16px;
         font-size: 14px;
         padding: 5px 20px;
-        border: 1px solid gray;
+        border: 1px solid $primary;
         cursor: pointer;
-        background-color: $silver;
+        background-color: transparent;
     }
 
     button:hover{
@@ -128,7 +128,8 @@
     margin-top: 40px;
     padding: 18px 20px;
     border-radius: 18px;
-    background-color: rgba($space, 0.5);
+    background-color: $secondary;
+    color: $silver;
     font-size: 20px;
     font-weight: 600;
     font-family: 'almarai';

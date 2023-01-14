@@ -1,7 +1,8 @@
 @import '../../../styles/variables.module.scss';
 
 .container{
-    background-color: rgba($space, 0.5);
+    background-color: $secondary;
+    color: $silver;
     font-family: 'arial';
     height: 48px;
     display: flex;
@@ -37,7 +38,8 @@
 }
 
 .filter{
-    background-color: rgb(171 212 255);
+    background-color: $primary;
+    color: $silver;
     position: absolute;
     right: 46px;
     border-radius: 15px 0px 15px 15px;

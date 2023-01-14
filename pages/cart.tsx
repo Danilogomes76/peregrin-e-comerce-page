@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import CardCart from '../src/components/CardCart';
+import logo from '../src/images/logo.svg';
 import styles from '../styles/pageStyles/cart.module.scss';
 import { useAppSelector } from '../src/hooks/reduceHooks';
+import Image from 'next/image';
+import CheckPay from '../src/components/CheckPay';
 
 const Cart: React.FC = () => {
   const { data } = useAppSelector(state => state.cart);
@@ -12,21 +15,30 @@ const Cart: React.FC = () => {
         <title>Cart</title>
       </Head>
       <main className={styles.container}>
-        <h1>Total: ${total}</h1>
-        <div className={styles.items}>
-          {data.map((item: any) => {
-            return (
-              <CardCart
-                key={item.id}
-                image={item.image}
-                title={item.title}
-                quantity={item.quantity}
-                price={item.price}
-                id={item.id}
-              />
-            );
-          })}
-        </div>
+        {data.length > 0 ? (
+          <>
+            <section className={styles.items}>
+              {data.map((item: any) => {
+                return (
+                  <CardCart
+                    key={item.id}
+                    image={item.image}
+                    title={item.title}
+                    quantity={item.quantity}
+                    price={item.price}
+                    id={item.id}
+                  />
+                );
+              })}
+            </section>
+            <CheckPay total={parseInt(total)} />
+          </>
+        ) : (
+          <section className={styles.cartEmpty}>
+            <h1>Cart Empty</h1>
+            <Image width={400} src={logo} alt={'logo'} />
+          </section>
+        )}
       </main>
     </>
   );

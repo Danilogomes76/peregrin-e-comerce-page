@@ -4,8 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: $space;
-    color: white;
+    background: $primary;
+    color: $text;
 }
 .logo{
     display: flex;
@@ -63,7 +63,7 @@
         justify-content: center;
         width: 24px;
         height: 25px;
-        background: $battleship;
+        background: $battleship_400;
         border: none;
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
@@ -92,6 +92,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: $spanish;
+    background-color: $secondary;
     color: white;
 }

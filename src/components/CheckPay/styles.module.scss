@@ -1,0 +1,91 @@
+@import '../../../styles/variables.module.scss';
+
+.container{
+    width: 444px;
+    font-family: 'almarai';
+}
+
+.totalAmountBox{
+    display: flex;
+    flex-direction: column;
+    padding: 27px;
+    box-shadow: 0px 8px 10px 4px gray;
+}
+
+.totalAmount{
+    border-bottom: 1px dashed;
+    h3{
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+.pricingAndShipping{
+    margin-bottom: 37px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    div{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.vat{
+    margin-top: 30px;
+
+    button{
+        background-color: $secondary;
+        color: $silver;
+        width: 100%;
+        border-radius: 20px;
+        padding: 9px 0px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.vatAndPrice {
+    margin-bottom: 43px;
+    display: flex;
+    justify-content: space-between;
+    p{
+        font-weight: bold;
+    }
+
+    h3{
+        font-size: 16px;
+    }
+}
+
+.promoBox{
+    margin-top: 33px;
+    padding: 30px 33px;
+    box-shadow: 0px 8px 10px 4px gray;
+
+    h3 {
+        font-size: 20px;
+        margin-bottom: 13px;
+    }
+    
+    .inputBox{
+        display: flex;
+        gap: 25px;
+        align-items: center;
+
+        input{
+            padding: 6px 12px;
+            width: 276px;
+            border-radius: 8px;
+            border: 1px solid;  
+        }
+
+        button{
+            color: $silver;
+            background-color: $secondary;
+            padding: 7px 16px;
+            border-radius: 8px;
+        }
+        
+    }
+}

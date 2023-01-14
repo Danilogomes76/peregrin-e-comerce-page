@@ -1,8 +1,8 @@
 @import '../../../styles/variables.module.scss';
 
 .container{
-    background-color: $space;
-    color: $silver;
+    background-color: $primary;
+    color: $text;
     font-family: 'inter';
 
     p{
@@ -60,17 +60,18 @@
     input{
         padding: 24px;
         width: 312px;
-        background-color: $sarg;
+        background-color: $secondary;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
         border: none;
-        color: $silver;
+        color: $text;
         font-size: 20px;
     }
     button{
         height: 70px;
         width: 115px;
-        background-color: $battleship;
+        background-color: $battleship_400;
+        color: $text;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
         border: none;
