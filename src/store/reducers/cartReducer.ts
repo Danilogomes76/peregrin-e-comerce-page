@@ -3,11 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { ApiResponse } from '../../interface/apiInterface';
 
-export type State = {
-  data: ApiResponse[];
-};
 export type CartItem = ApiResponse & {
   quantity: number;
+  quantityPrice: number;
+};
+
+export type State = {
+  data: CartItem[];
 };
 
 interface Props {
@@ -32,6 +34,8 @@ export const cartSlice = createSlice({
         return;
       }
 
+      item.quantityPrice = item.price;
+
       state.data.push(item);
       localStorage.setItem(SAVED_PRODUCTS, JSON.stringify(state.data));
       return state;
@@ -40,9 +44,10 @@ export const cartSlice = createSlice({
       const id = action.payload.id;
       const value = action.payload.value;
 
-      state.data.map((item: any) => {
+      state.data.map((item: CartItem) => {
         if (item.id == id) {
           item.quantity = value;
+          item.quantityPrice = Number((item.price * item.quantity).toFixed(2));
         }
       });
 
@@ -56,7 +61,7 @@ export const cartSlice = createSlice({
     },
     loadProducts(state) {
       if (localStorage.getItem(SAVED_PRODUCTS)) {
-        const savedItems: ApiResponse[] = JSON.parse(
+        const savedItems: CartItem[] = JSON.parse(
           localStorage.getItem(SAVED_PRODUCTS)!,
         );
         if (savedItems) {

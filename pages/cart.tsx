@@ -8,7 +8,11 @@ import CheckPay from '../src/components/CheckPay';
 
 const Cart: React.FC = () => {
   const { data } = useAppSelector(state => state.cart);
-  const total = data.reduce((total, item) => total + item.price, 0).toFixed(2);
+  const total = Number(
+    data.reduce((total, item) => total + item.quantityPrice, 0).toFixed(2),
+  );
+  console.log(total);
+
   return (
     <>
       <Head>
@@ -25,13 +29,13 @@ const Cart: React.FC = () => {
                     image={item.image}
                     title={item.title}
                     quantity={item.quantity}
-                    price={item.price}
+                    quantityPrice={item.quantityPrice}
                     id={item.id}
                   />
                 );
               })}
             </section>
-            <CheckPay total={parseInt(total)} />
+            <CheckPay total={total} />
           </>
         ) : (
           <section className={styles.cartEmpty}>

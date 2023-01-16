@@ -10,13 +10,13 @@ interface Props {
   image: string;
   title: string;
   quantity: number;
-  price: number;
+  quantityPrice: number;
   id: number;
 }
 
 const CardCart: React.FC<Props> = ({
   image,
-  price,
+  quantityPrice,
   quantity,
   title,
   id,
@@ -42,7 +42,7 @@ const CardCart: React.FC<Props> = ({
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.nameAndImg}>
-          <Image src={menos_icon} alt={title} width={80} height={80} />
+          <Image src={image} alt={title} width={80} height={80} />
           <div className={styles.titleBox}>
             <p style={title.length > 38 ? { fontSize: '11px' } : undefined}>
               {title}
@@ -75,7 +75,7 @@ const CardCart: React.FC<Props> = ({
           </div>
           <div>
             <p>Price</p>
-            <p className={styles.price}>${price}</p>
+            <p className={styles.price}>${quantityPrice}</p>
           </div>
         </div>
       </div>
