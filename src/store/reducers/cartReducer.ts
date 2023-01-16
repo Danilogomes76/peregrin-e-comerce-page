@@ -34,8 +34,6 @@ export const cartSlice = createSlice({
         return;
       }
 
-      item.quantityPrice = item.price;
-
       state.data.push(item);
       localStorage.setItem(SAVED_PRODUCTS, JSON.stringify(state.data));
       return state;
