@@ -16,7 +16,7 @@ const ProductsItems: React.FC<Props> = ({ data, rangeValue }: Props) => {
 
   return (
     <section className={styles.container}>
-      {rangeValue == 0 ? (
+      {filtredProducts.length == 0 ? (
         <Image className={styles.logo} width={300} src={logo} alt={'logo'} />
       ) : (
         <div className={styles.productItems}>

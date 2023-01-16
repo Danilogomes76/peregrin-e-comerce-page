@@ -11,7 +11,6 @@ const Cart: React.FC = () => {
   const total = Number(
     data.reduce((total, item) => total + item.quantityPrice, 0).toFixed(2),
   );
-  console.log(total);
 
   return (
     <>

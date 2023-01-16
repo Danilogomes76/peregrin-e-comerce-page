@@ -14,7 +14,7 @@ function SearchItems({ items }: Props) {
     <main className={styles.container}>
       {items.length == 0 ? (
         <section className={styles.noItems}>
-          <h1>Item não encontrado</h1>
+          <h1>Item not found</h1>
           <Image width={400} src={logo} alt={'logo'} />
         </section>
       ) : (

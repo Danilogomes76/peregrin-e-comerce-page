@@ -3,6 +3,12 @@
 .container{
     width: 444px;
     font-family: 'almarai';
+    background-color: $background;
+
+
+    button:hover{
+        opacity: 0.9;
+    }
 }
 
 .totalAmountBox{
@@ -85,6 +91,7 @@
             background-color: $secondary;
             padding: 7px 16px;
             border-radius: 8px;
+            cursor:pointer;
         }
         
     }
