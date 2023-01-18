@@ -1,0 +1,39 @@
+@import '../variables.module.scss';
+
+.container {
+    font-family: "almarai";
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    margin: 120px 0px;
+}
+
+.apresentation {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-size: 60px;
+        font-weight: lighter;
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-size: 28px;
+        width: 647px;
+    }
+}
+
+.logo {
+    width: 512px;
+    height: 512px;
+    background-color: $secondary;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        opacity: 0.5;
+    }
+}

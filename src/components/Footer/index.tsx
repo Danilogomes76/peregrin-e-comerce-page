@@ -4,6 +4,7 @@ import facebook from '../../images/socialIcons/Facebook.svg';
 import twitter from '../../images/socialIcons/Twitter.svg';
 import instagram from '../../images/socialIcons/Instagram.svg';
 import linkedin from '../../images/socialIcons/Linkedin.svg';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Footer: React.FC = () => {
         <div>
           <p>Company</p>
           <ul>
-            <li>About Us</li>
+            <Link href='/about'><li>About Us</li></Link>
             <li>Why Choose us</li>
             <li>Pricing</li>
             <li>Testimonial</li>
@@ -24,7 +25,7 @@ const Footer: React.FC = () => {
             <li>Privacy Policy</li>
             <li>Terms and Condition</li>
             <li>Blog</li>
-            <li>Contact Us</li>
+            <Link href='/contact'><li>Contact Us</li></Link>
           </ul>
         </div>
         <div>

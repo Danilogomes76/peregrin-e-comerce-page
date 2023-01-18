@@ -29,10 +29,10 @@ const Header: React.FC = () => {
             <li>Products</li>
           </Link>
           <Link href="/contact">
-            <li>Contact</li>
+            <li>Contact us</li>
           </Link>
           <Link href="/about">
-            <li>About</li>
+            <li>About us</li>
           </Link>
           <Link href="/help">
             <li>Help</li>
@@ -65,7 +65,9 @@ const Header: React.FC = () => {
               height={36}
             />
           </Link>
-          <Image src={userImg} alt="user" width={36} height={36} />
+          <Link href="/profile">
+            <Image src={userImg} alt="user" width={36} height={36} />
+          </Link>
         </div>
       </div>
     </header>
