@@ -30,10 +30,6 @@ export const cartSlice = createSlice({
     addToCart(state, action: PayloadAction<CartItem>) {
       const item = action.payload;
 
-      if (state.data.some(i => i.id == item.id)) {
-        return;
-      }
-
       state.data.push(item);
       localStorage.setItem(SAVED_PRODUCTS, JSON.stringify(state.data));
       return state;

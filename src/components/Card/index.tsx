@@ -4,17 +4,34 @@ import heartImg from '../../images/heart.svg';
 import starImg from '../../images/star.svg';
 import Link from 'next/link';
 import { ApiResponse } from '../../interface/apiInterface';
-import { useAppDispatch } from '../../hooks/reduceHooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduceHooks';
 import { addToCart } from '../../store/reducers/cartReducer';
+import 'react-toastify/dist/ReactToastify.css';
+import { notifyAddToCart, notifyAlredyInCart } from '../../notifys/notifys';
 
 interface Props {
   state: any;
 }
 
 const Card: React.FC<Props> = ({ state }: Props) => {
+  const { data } = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
-
   const discount = 0;
+
+  const addInCart = (card: any) => {
+    if (data.some(i => i.id == card.id)) {
+      notifyAlredyInCart();
+      return;
+    }
+    dispatch(
+      addToCart({
+        ...card,
+        quantity: 1,
+        quantityPrice: card.price,
+      }),
+    );
+    notifyAddToCart();
+  };
 
   return (
     <>
@@ -66,19 +83,7 @@ const Card: React.FC<Props> = ({ state }: Props) => {
                   {priceBeforeDiscount != '' ? priceBeforeDiscount : card.price}
                   {priceBeforeDiscount != '' && <s>${card.price}</s>}
                 </h3>
-                <button
-                  onClick={() =>
-                    dispatch(
-                      addToCart({
-                        ...card,
-                        quantity: 1,
-                        quantityPrice: card.price,
-                      }),
-                    )
-                  }
-                >
-                  Add to cart
-                </button>
+                <button onClick={() => addInCart(card)}>Add to cart</button>
               </div>
             </div>
           </div>

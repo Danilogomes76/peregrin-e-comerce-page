@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import CardCart from '../src/components/CardCart';
-import logo from '../src/images/logo.svg';
+import logo from '../src/images/logo-high-size.svg';
 import styles from '../styles/pageStyles/cart.module.scss';
 import { useAppSelector } from '../src/hooks/reduceHooks';
 import Image from 'next/image';
@@ -16,7 +16,7 @@ const Cart: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Cart</title>
+        <title>Profile Cart</title>
       </Head>
       <main className={styles.container}>
         {data.length > 0 ? (

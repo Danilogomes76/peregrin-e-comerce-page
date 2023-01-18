@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ApiResponse } from '../../interface/apiInterface';
 import Card from '../Card';
-import logo from '../../images/logo.svg';
+import logo from '../../images/logo-high-size.svg';
 import styles from './styles.module.scss';
 
 interface Props {

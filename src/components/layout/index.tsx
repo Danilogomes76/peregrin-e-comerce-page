@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { useAppDispatch } from '../../hooks/reduceHooks';
 import { loadProducts } from '../../store/reducers/cartReducer';
 import Footer from '../Footer';
@@ -19,6 +20,18 @@ const Layout: React.FC<Props> = ({ children }) => {
     <>
       <Header />
       {children}
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
       <Footer />
     </>
   );
