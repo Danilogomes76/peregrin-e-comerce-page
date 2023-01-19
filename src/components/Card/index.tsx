@@ -4,33 +4,15 @@ import heartImg from '../../images/heart.svg';
 import starImg from '../../images/star.svg';
 import Link from 'next/link';
 import { ApiResponse } from '../../interface/apiInterface';
-import { useAppDispatch, useAppSelector } from '../../hooks/reduceHooks';
-import { addToCart } from '../../store/reducers/cartReducer';
-import { notifyAddToCart, notifyAlredyInCart } from '../../notifys/notifys';
+import { useActions } from '../../hooks/useCartActions';
 
 interface Props {
   state: any;
 }
 
 const Card: React.FC<Props> = ({ state }: Props) => {
-  const { data } = useAppSelector(state => state.cart);
-  const dispatch = useAppDispatch();
   const discount = 0;
-
-  const addInCart = (card: any) => {
-    if (data.some(i => i.id == card.id)) {
-      notifyAlredyInCart();
-      return;
-    }
-    dispatch(
-      addToCart({
-        ...card,
-        quantity: 1,
-        quantityPrice: card.price,
-      }),
-    );
-    notifyAddToCart();
-  };
+  const { addInCart } = useActions();
 
   return (
     <>

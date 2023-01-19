@@ -25,3 +25,15 @@ export const notifyAddToCart = () => {
     theme: 'dark',
   });
 };
+export const notifyRemoveToCart = () => {
+  toast.info('Item removed from cart!', {
+    position: 'top-center',
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
+};

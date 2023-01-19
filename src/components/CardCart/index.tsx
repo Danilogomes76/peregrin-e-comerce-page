@@ -5,6 +5,7 @@ import menos_icon from '../../images/menos-icon.svg';
 import { removeToCart, updateCartItem } from '../../store/reducers/cartReducer';
 import { useAppDispatch } from '../../hooks/reduceHooks';
 import { useEffect, useState } from 'react';
+import { useActions } from '../../hooks/useCartActions';
 
 interface Props {
   image: string;
@@ -21,7 +22,7 @@ const CardCart: React.FC<Props> = ({
   title,
   id,
 }: Props) => {
-  const dispatch = useAppDispatch();
+  const { removeFromCart, updateItem } = useActions();
 
   const [value, setValue] = useState(quantity);
 
@@ -31,12 +32,8 @@ const CardCart: React.FC<Props> = ({
       return;
     }
 
-    const updateItem = (value: number, id: number) => {
-      dispatch(updateCartItem({ value: value, id: id }));
-    };
-
     updateItem(value, id);
-  }, [value, dispatch, id]);
+  }, [value, id, updateItem]);
 
   return (
     <div className={styles.container}>
@@ -47,7 +44,7 @@ const CardCart: React.FC<Props> = ({
             <p style={title.length > 38 ? { fontSize: '11px' } : undefined}>
               {title}
             </p>
-            <button onClick={() => dispatch(removeToCart(id))}>Remove</button>
+            <button onClick={() => removeFromCart(id)}>Remove</button>
           </div>
         </div>
         <div className={styles.quantityPriceBox}>
