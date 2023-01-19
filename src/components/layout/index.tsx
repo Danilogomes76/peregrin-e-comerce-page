@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { useAppDispatch } from '../../hooks/reduceHooks';
 import { loadProducts } from '../../store/reducers/cartReducer';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from '../Footer';
 import Header from '../Header';
 

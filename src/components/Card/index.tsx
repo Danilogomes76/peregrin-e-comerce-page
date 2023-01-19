@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { ApiResponse } from '../../interface/apiInterface';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduceHooks';
 import { addToCart } from '../../store/reducers/cartReducer';
-import 'react-toastify/dist/ReactToastify.css';
 import { notifyAddToCart, notifyAlredyInCart } from '../../notifys/notifys';
 
 interface Props {

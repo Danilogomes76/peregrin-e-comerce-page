@@ -8,6 +8,12 @@ import { ApiResponse } from '../../../src/interface/apiInterface';
 import styles from '../../../styles/pageStyles/itemPage.module.scss';
 import starImg from '../../../src/images/star.svg';
 import { useStarsNumber } from '../../../src/hooks/useStar';
+import {
+  notifyAddToCart,
+  notifyAlredyInCart,
+} from '../../../src/notifys/notifys';
+import { addToCart } from '../../../src/store/reducers/cartReducer';
+import { useAppDispatch, useAppSelector } from '../../../src/hooks/reduceHooks';
 
 interface Props {
   dataItem: ApiResponse;
@@ -56,6 +62,24 @@ const Product = ({ dataItem }: Props) => {
   }, [dataItem.category, haveSize]);
 
   const starsNumber = useStarsNumber(dataItem.rating?.rate);
+
+  const { data } = useAppSelector(state => state.cart);
+  const dispatch = useAppDispatch();
+
+  const addInCart = (card: any) => {
+    if (data.some(i => i.id == card.id)) {
+      notifyAlredyInCart();
+      return;
+    }
+    dispatch(
+      addToCart({
+        ...card,
+        quantity: 1,
+        quantityPrice: card.price,
+      }),
+    );
+    notifyAddToCart();
+  };
 
   return (
     <>
@@ -115,7 +139,12 @@ const Product = ({ dataItem }: Props) => {
               <p className={styles.descriptionTitle}>Description</p>
               <p>{dataItem.description}</p>
             </div>
-            <button className={styles.addToCart}>ADD TO CART</button>
+            <button
+              onClick={() => addInCart(dataItem)}
+              className={styles.addToCart}
+            >
+              ADD TO CART
+            </button>
           </div>
         </section>
       </main>
