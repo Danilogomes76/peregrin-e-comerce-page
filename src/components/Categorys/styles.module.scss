@@ -1,74 +1,76 @@
 @import '../../../styles/variables.module.scss';
 
-.container{
-    display: flex;
-    justify-content: center;
-    margin-top: 96px;
-    gap: 17px;
-    margin-bottom: 140px;
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 96px;
+  gap: 17px;
+  margin-bottom: 140px;
 }
 
-.cardCategory{
-    width: 320px;
-    height: 424px;
-    background-color: $battleship_900;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    font-family: 'almarai';
-    border-radius: 15px;
-    box-shadow: 7px 7px 3px $primary;
-    cursor: pointer;
-    
-
-    h2{
-        font-size: 32px;
-        font-weight: 200;
-        color: $silver;
-    }
-
-    &:hover{
-        animation: ScaleUp 0.5s forwards;
-    }
-    &:not(:hover){
-        animation: ScaleDown 0.5s forwards;
-        filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
-            -moz-filter: grayscale(100%);
-    }
+.container:has(.cardCategory:hover) .cardCategory:not(:hover) {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
 }
 
-.imageContainer{
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(180deg, rgba(87, 34, 34, 0) 0%, #422C2C 68.75%);
-    width: 264px;
-    height: 264px;
-    border-radius: 50%;
-    position: relative;
+.cardCategory {
+  width: 320px;
+  height: 424px;
+  background-color: $battleship_900;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: 'almarai';
+  border-radius: 15px;
+  box-shadow: 7px 7px 3px $primary;
+  cursor: pointer;
 
-    img{
-        position: absolute;
-        border-bottom-right-radius: 121px;
-        border-bottom-left-radius: 121px;
-        bottom: 5px;
-    }
+  h2 {
+    font-size: 32px;
+    font-weight: 200;
+    color: $silver;
+  }
+
+  &:hover {
+    animation: ScaleUp 0.5s forwards;
+  }
+  &:not(:hover) {
+    animation: ScaleDown 0.5s forwards;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(87, 34, 34, 0) 0%, #422c2c 68.75%);
+  width: 264px;
+  height: 264px;
+  border-radius: 50%;
+  position: relative;
+
+  img {
+    position: absolute;
+    border-bottom-right-radius: 121px;
+    border-bottom-left-radius: 121px;
+    bottom: 5px;
+  }
 }
 
 @keyframes ScaleUp {
-    0% {
-        scale: 1;
-    }
-    100% {
-        scale: 1.025;
-    }
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.025;
+  }
 }
 @keyframes ScaleDown {
-    0% {
-        scale: 1.025;
-    }
-    100% {
-        scale: 1;
-    }
+  0% {
+    scale: 1.025;
+  }
+  100% {
+    scale: 1;
+  }
 }
