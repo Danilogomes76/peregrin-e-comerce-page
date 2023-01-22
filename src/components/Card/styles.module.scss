@@ -4,9 +4,14 @@
   width: 280px;
   height: 442px;
   background-color: $silver;
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  animation: shadowDown 0.5s forwards;
   border-radius: 16px;
 }
+
+.container:hover {
+  animation: shadowUp 0.5s forwards;
+}
+
 .content {
   padding: 0px 10px;
   display: flex;
@@ -88,5 +93,22 @@
     font-size: 15px;
     opacity: 0.5;
     margin-left: 5px;
+  }
+}
+
+@keyframes shadowUp {
+  from {
+    box-shadow: 0 0 1px 1px rgb(0 0 0 / 7%), 0 10px 15px 0 rgb(0 0 0 / 10%);
+  }
+  to {
+    box-shadow: 0 0 6px 6px rgb(0 0 0 / 7%), 0 10px 15px 0 rgb(0 0 0 / 10%);
+  }
+}
+@keyframes shadowDown {
+  from {
+    box-shadow: 0 0 6px 6px rgb(0 0 0 / 7%), 0 10px 15px 0 rgb(0 0 0 / 10%);
+  }
+  to {
+    box-shadow: 0 0 1px 1px rgb(0 0 0 / 7%), 0 10px 15px 0 rgb(0 0 0 / 10%);
   }
 }
