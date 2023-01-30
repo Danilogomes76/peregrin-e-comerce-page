@@ -2,8 +2,6 @@ import Image from 'next/image';
 import styles from './styles.module.scss';
 import mais_icon from '../../images/mais-icon.svg';
 import menos_icon from '../../images/menos-icon.svg';
-import { removeToCart, updateCartItem } from '../../store/reducers/cartReducer';
-import { useAppDispatch } from '../../hooks/reduceHooks';
 import { useEffect, useState } from 'react';
 import { useActions } from '../../hooks/useCartActions';
 

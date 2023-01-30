@@ -1,2 +1,40 @@
+@import '../variables.module.scss';
+
 .container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-family: 'almarai';
+  margin-bottom: 66px;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+    color: $battleship_400;
+  }
+
+  p {
+    font-size: 17px;
+    color: #827f7f;
+  }
+
+  img {
+    border-radius: 50%;
+    align-self: center;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
 }
