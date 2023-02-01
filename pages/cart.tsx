@@ -36,7 +36,7 @@ const Cart: React.FC = () => {
             <CheckPay total={total} />
           </>
         ) : (
-          <NoItem />
+          <NoItem size={300} />
         )}
       </main>
     </>
