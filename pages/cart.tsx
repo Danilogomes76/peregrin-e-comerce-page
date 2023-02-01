@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import CardCart from '../src/components/CardCart';
-import logo from '../src/images/logo-high-size.svg';
 import styles from '../styles/pageStyles/cart.module.scss';
 import { useAppSelector } from '../src/hooks/reduceHooks';
-import Image from 'next/image';
 import CheckPay from '../src/components/CheckPay';
+import NoItem from '../src/components/NoItem';
 
 const Cart: React.FC = () => {
   const { data } = useAppSelector(state => state.cart);
@@ -37,10 +36,7 @@ const Cart: React.FC = () => {
             <CheckPay total={total} />
           </>
         ) : (
-          <section className={styles.cartEmpty}>
-            <h1>Cart Empty</h1>
-            <Image width={400} src={logo} alt={'logo'} />
-          </section>
+          <NoItem />
         )}
       </main>
     </>

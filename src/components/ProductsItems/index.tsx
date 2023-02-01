@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import { ApiResponse } from '../../interface/apiInterface';
 import Card from '../Card';
-import logo from '../../images/logo-high-size.svg';
+
 import styles from './styles.module.scss';
+import NoItem from '../NoItem';
 
 interface Props {
   data: any;
@@ -17,7 +17,7 @@ const ProductsItems: React.FC<Props> = ({ data, rangeValue }: Props) => {
   return (
     <section className={styles.container}>
       {filtredProducts.length == 0 ? (
-        <Image className={styles.logo} width={300} src={logo} alt={'logo'} />
+        <NoItem size={300} />
       ) : (
         <div className={styles.productItems}>
           <Card state={rangeValue < 1000 ? filtredProducts : data} />

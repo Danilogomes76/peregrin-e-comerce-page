@@ -8,7 +8,7 @@ import bagIcon from '../src/images/profilePage/bag.svg';
 import settingIcon from '../src/images/profilePage/gear.svg';
 import ProfileSettings from '../src/components/ProfileSettings';
 
-const pages: React.FC = () => {
+const Profile: React.FC = () => {
   return (
     <>
       <Head>
@@ -50,4 +50,4 @@ const pages: React.FC = () => {
   );
 };
 
-export default pages;
+export default Profile;

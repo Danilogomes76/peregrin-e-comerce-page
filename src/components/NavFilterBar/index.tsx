@@ -14,8 +14,28 @@ interface Props {
 const NavFilterBar: React.FC<Props> = ({ onChange, rangeValue }: Props) => {
   const [visibleFilter, setVisibleFilter] = useState(false);
 
+  // const [spring, api] = useSpring(() => ({
+  //   from: {
+  //     opacity: visibleFilter ? 1 : 0,
+  //   },
+  //   config: { duration: 500 },
+  // }));
+
+  // const handleAppear = () => {
+  //   api.start({
+  //     from: {
+  //       opacity: visibleFilter ? 1 : 0,
+  //     },
+  //     to: {
+  //       opacity: visibleFilter ? 0 : 1,
+  //     },
+  //   });
+  //   setVisibleFilter(!visibleFilter);
+  // };
+
   const [spring, api] = useSpring(() => ({
     from: {
+      display: visibleFilter ? 'initial' : 'none',
       opacity: visibleFilter ? 1 : 0,
     },
     config: { duration: 500 },
@@ -24,10 +44,12 @@ const NavFilterBar: React.FC<Props> = ({ onChange, rangeValue }: Props) => {
   const handleAppear = () => {
     api.start({
       from: {
+        display: visibleFilter ? 'initial' : 'none',
         opacity: visibleFilter ? 1 : 0,
       },
       to: {
         opacity: visibleFilter ? 0 : 1,
+        display: visibleFilter ? 'none' : 'initial',
       },
     });
     setVisibleFilter(!visibleFilter);
@@ -56,7 +78,11 @@ const NavFilterBar: React.FC<Props> = ({ onChange, rangeValue }: Props) => {
         <button onClick={() => handleAppear()}>
           <Image src={filterIcon} alt="filterIcon" />
         </button>
-        <animated.div style={{ ...spring }} className={styles.filter}>
+        <animated.div
+          onMouseLeave={() => handleAppear()}
+          style={{ ...spring }}
+          className={styles.filter}
+        >
           <p>
             Max price
             <input

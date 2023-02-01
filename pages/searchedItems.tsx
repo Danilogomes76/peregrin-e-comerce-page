@@ -1,8 +1,7 @@
 import axios from 'axios';
 import Head from 'next/head';
-import Image from 'next/image';
 import Card from '../src/components/Card';
-import logo from '../src/images/logo-high-size.svg';
+import NoItem from '../src/components/NoItem';
 import { ApiResponse } from '../src/interface/apiInterface';
 import styles from '../styles/pageStyles/searchedItems.module.scss';
 
@@ -11,7 +10,7 @@ interface Props {
   search: string;
 }
 
-function SearchItems({ items, search }: Props) {
+const SearchItems: React.FC<Props> = ({ items, search }: Props) => {
   return (
     <>
       <Head>
@@ -19,9 +18,9 @@ function SearchItems({ items, search }: Props) {
       </Head>
       <main className={styles.container}>
         {items.length == 0 ? (
-          <section className={styles.noItems}>
+          <section className={styles.noItem}>
             <h1>Item not found</h1>
-            <Image width={400} src={logo} alt={'logo'} />
+            <NoItem size={400} />
           </section>
         ) : (
           <section className={styles.searchedItems}>
@@ -31,7 +30,7 @@ function SearchItems({ items, search }: Props) {
       </main>
     </>
   );
-}
+};
 
 export async function getServerSideProps(context: any) {
   const { q } = context.query;
