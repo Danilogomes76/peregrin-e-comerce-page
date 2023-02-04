@@ -14,25 +14,6 @@ interface Props {
 const NavFilterBar: React.FC<Props> = ({ onChange, rangeValue }: Props) => {
   const [visibleFilter, setVisibleFilter] = useState(false);
 
-  // const [spring, api] = useSpring(() => ({
-  //   from: {
-  //     opacity: visibleFilter ? 1 : 0,
-  //   },
-  //   config: { duration: 500 },
-  // }));
-
-  // const handleAppear = () => {
-  //   api.start({
-  //     from: {
-  //       opacity: visibleFilter ? 1 : 0,
-  //     },
-  //     to: {
-  //       opacity: visibleFilter ? 0 : 1,
-  //     },
-  //   });
-  //   setVisibleFilter(!visibleFilter);
-  // };
-
   const [spring, api] = useSpring(() => ({
     from: {
       display: visibleFilter ? 'initial' : 'none',

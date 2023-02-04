@@ -4,6 +4,7 @@ import logoImg from '../../images/logo.svg';
 import cartImg from '../../images/cart.svg';
 import userImg from '../../images/user.svg';
 import lupaImg from '../../images/lupa.svg';
+import heartImg from '../../images/heart.svg';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import { useAppSelector } from '../../hooks/reduceHooks';
@@ -52,6 +53,9 @@ const Header: React.FC = () => {
           </Link>
         </form>
         <div className={styles.headerIcons}>
+          <Link href="/favorites">
+            <Image src={heartImg} alt="favorite" width={36} height={36} />
+          </Link>
           <Link
             className={styles.cart}
             data-count={cart.data.length > 0 ? cart.data.length : ''}

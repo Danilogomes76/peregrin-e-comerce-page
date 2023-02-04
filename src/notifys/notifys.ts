@@ -37,3 +37,31 @@ export const notifyRemoveToCart = () => {
     theme: 'dark',
   });
 };
+
+export const notifyAddToFavorites = () => {
+  toast.success('Added to wishlist!', {
+    progressClassName: 'progressBar',
+    icon: '❤️',
+    position: 'top-center',
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
+};
+export const notifyRemoveToFavorites = () => {
+  toast.info('Item removed from wishlist!', {
+    icon: '🗑️',
+    position: 'top-center',
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
+};

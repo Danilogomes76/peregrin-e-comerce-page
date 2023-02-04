@@ -3,7 +3,8 @@ import styles from './styles.module.scss';
 import mais_icon from '../../images/mais-icon.svg';
 import menos_icon from '../../images/menos-icon.svg';
 import { useEffect, useState } from 'react';
-import { useActions } from '../../hooks/useCartActions';
+import { useCartActions } from '../../hooks/useCartActions';
+import Link from 'next/link';
 
 interface Props {
   image: string;
@@ -20,7 +21,7 @@ const CardCart: React.FC<Props> = ({
   title,
   id,
 }: Props) => {
-  const { removeFromCart, updateItem } = useActions();
+  const { removeFromCart, updateItem } = useCartActions();
 
   const [value, setValue] = useState(quantity);
 
@@ -39,9 +40,11 @@ const CardCart: React.FC<Props> = ({
         <div className={styles.nameAndImg}>
           <Image src={image} alt={title} width={80} height={80} />
           <div className={styles.titleBox}>
-            <p style={title.length > 38 ? { fontSize: '11px' } : undefined}>
-              {title}
-            </p>
+            <Link href={`/products/item/${id}`}>
+              <p style={title.length > 38 ? { fontSize: '11px' } : undefined}>
+                {title}
+              </p>
+            </Link>
             <button onClick={() => removeFromCart(id)}>Remove</button>
           </div>
         </div>

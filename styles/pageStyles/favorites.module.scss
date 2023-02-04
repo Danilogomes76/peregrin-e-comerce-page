@@ -1,0 +1,28 @@
+.container {
+  margin-top: 57px;
+  margin-bottom: 66px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'almarai';
+}
+
+.noItems {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-weight: lighter;
+  }
+}
+.apresentation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    font-size: 4em;
+  }
+}

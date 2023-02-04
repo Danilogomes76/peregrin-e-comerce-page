@@ -10,20 +10,20 @@ import {
 } from '../store/reducers/cartReducer';
 import { useAppDispatch, useAppSelector } from './reduceHooks';
 
-export const useActions = () => {
+export const useCartActions = () => {
   const { data } = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
 
-  const addInCart = (card: any) => {
-    if (data.some(i => i.id == card.id)) {
+  const addInCart = (item: any) => {
+    if (data.some(i => i.id == item.id)) {
       notifyAlredyInCart();
       return;
     }
     dispatch(
       addToCart({
-        ...card,
+        ...item,
         quantity: 1,
-        quantityPrice: card.price,
+        quantityPrice: item.price,
       }),
     );
     notifyAddToCart();

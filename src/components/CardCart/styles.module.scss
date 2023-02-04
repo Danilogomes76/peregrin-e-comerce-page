@@ -1,103 +1,108 @@
 @import '../../../styles/variables.module.scss';
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $secondary;
-    color: $silver;
-    width: 714px;
-    height: 118px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $secondary;
+  color: $silver;
+  width: 714px;
+  height: 118px;
+  border-radius: 5px;
+  font-family: 'inter';
+  box-shadow: 0px 8px 10px 4px grey;
+}
+
+.content {
+  display: flex;
+  width: 626px;
+  gap: 27px;
+  justify-content: space-between;
+
+  img {
     border-radius: 5px;
-    font-family: "inter";
+  }
 }
 
-.content{
-    display: flex;
-    width: 626px;
-    gap: 27px;
-    justify-content: space-between;
-    
-    img{
-        border-radius: 5px;
-    }
+.nameAndImg {
+  display: flex;
+  gap: 27px;
 }
 
-.nameAndImg{
-    display: flex;
-    gap: 27px;
+.titleBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  p {
+    font-weight: bold;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    color: $silver;
+    cursor: pointer;
+  }
 }
 
-.titleBox{
+.quantityPriceBox {
+  display: flex;
+  gap: 33px;
+
+  p {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .quantity {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    p{
-        font-weight: bold;
-    }
+    align-items: center;
+  }
 
-    button{
-        background: transparent;
-        border: none;
-        font-size: 15px;
-        color: $silver;
-        cursor: pointer;
+  .price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    :nth-child(2) {
+      margin-top: 12px;
+      font-weight: lighter;
     }
+  }
 }
 
-.quantityPriceBox{
-    display: flex;
-    gap: 33px;
+.inputQuantity {
+  margin-top: 12px;
+  display: flex;
+  gap: 5px;
 
-    p{
-        font-weight: bold;
-        font-size: 14px;
-    }
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 
-    .quantity{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  input[type='number'] {
+    color: $silver;
+    background-color: $battleship_400;
+    border-radius: 11px;
+    width: 61px;
+    height: 22px;
+    text-align: center;
+    border: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    cursor: default;
+  }
 
+  input[type='number']:focus {
+    outline: none;
+  }
 
-    .price{
-        margin-top: 12px;
-        font-weight: lighter;
-    }
-}
-
-.inputQuantity{
-    margin-top: 12px;
-    display: flex;
-    gap: 5px;
-
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-    }
-    
-    input[type="number"] {
-        color: $silver;
-        background-color: $battleship_400;
-        border-radius: 11px;
-        width: 61px;
-        height: 22px;
-        text-align: center;
-        border: none;
-        -moz-appearance: textfield;
-        appearance: textfield;
-        cursor: default;
-    }
-
-    input[type="number"]:focus {
-        outline: none;
-    }
-
-
-    button{
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-    }
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 }

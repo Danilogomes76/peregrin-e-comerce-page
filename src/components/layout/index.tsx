@@ -5,6 +5,7 @@ import { loadProducts } from '../../store/reducers/cartReducer';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from '../Footer';
 import Header from '../Header';
+import { loadFavorite } from '../../store/reducers/favoriteReducer';
 
 interface Props {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     dispatch(loadProducts());
+    dispatch(loadFavorite());
   });
 
   return (
