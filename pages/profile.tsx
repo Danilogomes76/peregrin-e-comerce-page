@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/pageStyles/profile.module.scss';
-import userIcon from '../src/images/profilePage/user.svg';
-import userIconNav from '../src/images/user.svg';
-import locationIcon from '../src/images/profilePage/location.svg';
+import ProfileSettings from '../src/components/ProfileSettings';
 import bagIcon from '../src/images/profilePage/bag.svg';
 import settingIcon from '../src/images/profilePage/gear.svg';
-import ProfileSettings from '../src/components/ProfileSettings';
+import locationIcon from '../src/images/profilePage/location.svg';
+import userIcon from '../src/images/profilePage/user.svg';
+import userIconNav from '../src/images/user.svg';
+import styles from '../styles/pageStyles/profile.module.scss';
 
 const Profile: React.FC = () => {
   return (

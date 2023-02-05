@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import CardCart from '../src/components/CardCart';
-import styles from '../styles/pageStyles/cart.module.scss';
-import { useAppSelector } from '../src/hooks/reduceHooks';
 import CheckPay from '../src/components/CheckPay';
 import NoItem from '../src/components/NoItem';
+import { useAppSelector } from '../src/hooks/reduceHooks';
+import styles from '../styles/pageStyles/cart.module.scss';
 
 const Cart: React.FC = () => {
   const { data } = useAppSelector(state => state.cart);

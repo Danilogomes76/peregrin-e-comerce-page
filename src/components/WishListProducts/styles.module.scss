@@ -18,17 +18,17 @@
   }
 
   td {
-    border: 1px solid #dddddd;
     padding: 8px;
     text-align: center;
   }
 
-  tr:nth-child(even) {
-    background-color: rgba($battleship_400, 0.5);
+  tr:not(:has(th)):hover {
+    background-color: rgb($battleship_400, 0.3);
+    transition: all 0.2s ease-in-out;
   }
-
-  img {
-    margin-right: 11px;
+  tr:not(:has(th)) {
+    border: 1px solid #dddddd;
+    background-color: $background;
   }
 }
 
@@ -37,10 +37,15 @@
   align-items: center;
 }
 
+.productTitleLink {
+  margin-left: 1rem;
+}
+
 .trashBtn {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  margin: 0px 10px;
 }
 
 .btnCont {
@@ -57,4 +62,8 @@
   .addToCartBtn:hover {
     opacity: 0.9;
   }
+}
+
+.procuctImg {
+  border-radius: 5px;
 }

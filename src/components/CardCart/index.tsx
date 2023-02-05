@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import styles from './styles.module.scss';
-import mais_icon from '../../images/mais-icon.svg';
-import menos_icon from '../../images/menos-icon.svg';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useCartActions } from '../../hooks/useCartActions';
-import Link from 'next/link';
+import mais_icon from '../../images/mais-icon.svg';
+import menos_icon from '../../images/menos-icon.svg';
+import styles from './styles.module.scss';
 
 interface Props {
   image: string;
@@ -71,9 +71,9 @@ const CardCart: React.FC<Props> = ({
               </button>
             </div>
           </div>
-          <div>
+          <div className={styles.price}>
             <p>Price</p>
-            <p className={styles.price}>${quantityPrice}</p>
+            <p>${quantityPrice}</p>
           </div>
         </div>
       </div>

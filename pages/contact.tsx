@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/pageStyles/contact.module.scss';
 import woman from '../src/images/woman-contact.svg';
+import styles from '../styles/pageStyles/contact.module.scss';
 
 const Contact: React.FC = () => {
   return (

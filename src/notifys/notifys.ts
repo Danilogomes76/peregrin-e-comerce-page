@@ -26,7 +26,7 @@ export const notifyAddToCart = () => {
   });
 };
 export const notifyRemoveToCart = () => {
-  toast.info('Item removed from cart!', {
+  toast.info('Product removed from cart!', {
     position: 'top-center',
     autoClose: 2000,
     hideProgressBar: false,
@@ -53,7 +53,7 @@ export const notifyAddToFavorites = () => {
   });
 };
 export const notifyRemoveToFavorites = () => {
-  toast.info('Item removed from wishlist!', {
+  toast.info('Product removed from wishlist!', {
     icon: '🗑️',
     position: 'top-center',
     autoClose: 2000,

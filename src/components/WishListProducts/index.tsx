@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import styles from './styles.module.scss';
-import trashImg from '../../images/trash.svg';
-import { useFavoriteActions } from '../../hooks/useFavoriteActions';
-import { FavoriteItem } from '../../store/reducers/favoriteReducer';
-import { useCartActions } from '../../hooks/useCartActions';
 import Link from 'next/link';
+import { useCartActions } from '../../hooks/useCartActions';
+import { useFavoriteActions } from '../../hooks/useFavoriteActions';
+import trashImg from '../../images/trash.svg';
+import { FavoriteItem } from '../../store/reducers/favoriteReducer';
+import styles from './styles.module.scss';
 
 interface Props {
   favorites: FavoriteItem[];
@@ -35,8 +35,19 @@ const WishListProducts: React.FC<Props> = ({ favorites }: Props) => {
                   >
                     <Image src={trashImg} alt="trash" />
                   </button>
-                  <Image src={item.image} alt="Item" width={60} height={60} />
-                  <Link href={`/products/item/${item.id}`}>{item.title}</Link>
+                  <Image
+                    className={styles.procuctImg}
+                    src={item.image}
+                    alt="Item"
+                    width={60}
+                    height={60}
+                  />
+                  <Link
+                    className={styles.productTitleLink}
+                    href={`/products/item/${item.id}`}
+                  >
+                    {item.title}
+                  </Link>
                 </td>
                 <td>${item.price}</td>
                 <td>In stock</td>
