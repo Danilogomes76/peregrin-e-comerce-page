@@ -1,0 +1,79 @@
+@import '../variables.module.scss';
+.searchHead {
+  background-color: $primary;
+  color: $silver;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'almarai';
+  padding-top: 1.25rem;
+
+  h1 {
+    font-size: 1.85rem;
+    font-weight: 100;
+  }
+
+  input {
+    border-radius: 4px;
+    margin-top: 0.625rem;
+    width: 37.5rem;
+    padding: 0.75rem;
+
+    &::placeholder {
+      color: #dddd;
+    }
+  }
+}
+
+.helpsBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 4.5rem 0rem;
+}
+
+.helpsCardBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  width: 72.4375rem;
+  gap: 30px;
+}
+
+.hlpCard:hover {
+  animation: ScaleUp 0.5s forwards;
+}
+
+.helpsCardBox:has(.hlpCard:hover) .hlpCard:not(:hover) {
+  animation: grayscaleDown 0.5s forwards;
+}
+
+@keyframes ScaleUp {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1.025;
+  }
+}
+@keyframes ScaleDown {
+  0% {
+    scale: 1.025;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes grayscaleDown {
+  0% {
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+  }
+  100% {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+  }
+}
