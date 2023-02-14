@@ -1,14 +1,13 @@
 import Image from 'next/image';
-import styles from './styles.module.scss';
+import Link from 'next/link';
+import { useAppSelector } from '../../hooks/reduceHooks';
+import { useCartActions } from '../../hooks/useCartActions';
+import { useFavoriteActions } from '../../hooks/useFavoriteActions';
 import heartImgBlack from '../../images/heart.svg';
 import heartImgColor from '../../images/heartColor.svg';
 import starImg from '../../images/star.svg';
-import Link from 'next/link';
 import { ApiResponse } from '../../interface/apiInterface';
-import { useCartActions } from '../../hooks/useCartActions';
-import { useFavoriteActions } from '../../hooks/useFavoriteActions';
-import { useAppSelector } from '../../hooks/reduceHooks';
-import { useStarsNumber } from '../../hooks/useStar';
+import styles from './styles.module.scss';
 
 interface Props {
   state: any;
@@ -19,14 +18,15 @@ const Card: React.FC<Props> = ({ state }: Props) => {
   const { addInFavorites } = useFavoriteActions();
   const { favorites } = useAppSelector(state => state.favorites);
 
-  const SetStars = (item: ApiResponse) => {
-    return useStarsNumber(item.rating.rate);
-  };
-
   return (
     <>
       {state.map((item: ApiResponse) => {
-        const starsNumber = SetStars(item);
+        const starsNumber = (): Array<string> | undefined => {
+          const rate = item.rating?.rate;
+          if (typeof rate == 'undefined') return;
+          const stars = Math.round(rate);
+          return Array(stars).fill('star');
+        };
 
         return (
           <div key={item.id} className={styles.container}>
@@ -41,7 +41,13 @@ const Card: React.FC<Props> = ({ state }: Props) => {
             <div className={styles.content}>
               <div className={styles.titleBox}>
                 <Link href={`/products/item/${item.id}`}>
-                  <h3>{item.title}</h3>
+                  <h3
+                    style={
+                      item.title.length > 94 ? { fontSize: '14px' } : undefined
+                    }
+                  >
+                    {item.title}
+                  </h3>
                 </Link>
                 <button onClick={() => addInFavorites(item)}>
                   {favorites.some(i => i.id == item.id) ? (
@@ -55,7 +61,7 @@ const Card: React.FC<Props> = ({ state }: Props) => {
                 <p className={styles.category}>{item.category}</p>
                 <div className={styles.avaliationBox}>
                   <div>
-                    {starsNumber.map((_, index: number) => {
+                    {starsNumber()?.map((_, index: number) => {
                       return (
                         <Image key={index} src={starImg} alt={'starIcon'} />
                       );
