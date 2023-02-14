@@ -1,12 +1,12 @@
 /* eslint-disable no-useless-escape */
-import Head from 'next/head';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useState } from 'react';
 import axios from 'axios';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
+import { useState } from 'react';
 import NavFilterBar from '../../src/components/NavFilterBar';
 import ProductsItems from '../../src/components/ProductsItems';
-import styles from '../../styles/pageStyles/products.module.scss';
 import { ApiResponse } from '../../src/interface/apiInterface';
+import styles from '../../styles/pageStyles/products.module.scss';
 
 interface Props {
   dataItems: ApiResponse;
