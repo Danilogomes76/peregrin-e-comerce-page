@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import styles from './styles.module.scss';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import carrosel_1 from '../../images/carrosel/carrosel_1.svg';
 import carrosel_2 from '../../images/carrosel/carrosel_2.svg';
 import carrosel_3 from '../../images/carrosel/carrosel_3.svg';
+import styles from './styles.module.scss';
 
 const Carrosel: React.FC = () => {
   return (

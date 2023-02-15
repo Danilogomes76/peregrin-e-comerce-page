@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useAppDispatch } from '../../hooks/reduceHooks';
 import { loadProducts } from '../../store/reducers/cartReducer';
-import 'react-toastify/dist/ReactToastify.css';
+import { loadFavorite } from '../../store/reducers/favoriteReducer';
 import Footer from '../Footer';
 import Header from '../Header';
-import { loadFavorite } from '../../store/reducers/favoriteReducer';
+import MobileHeader from '../MobileHeader';
 
 interface Props {
   children: React.ReactNode;
@@ -13,6 +14,20 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const dispatch = useAppDispatch();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1170) {
+        setIsSmallScreen(true);
+      } else {
+        setIsSmallScreen(false);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     dispatch(loadProducts());
@@ -21,7 +36,8 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <>
-      <Header />
+      {isSmallScreen ? <MobileHeader /> : <Header />}
+
       {children}
       <ToastContainer
         position="top-center"

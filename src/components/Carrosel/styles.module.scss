@@ -1,8 +1,14 @@
-.container{
-    border-bottom: 1px solid;
+.container {
+  border-bottom: 1px solid;
 
-    img{
-        width: auto;
-        height: auto;
-    }
+  img {
+    width: auto;
+    height: auto;
+  }
+}
+
+@media (width <= 450px) {
+  .container {
+    display: none;
+  }
 }

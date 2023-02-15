@@ -71,5 +71,10 @@
     background-color: transparent;
     border: 1px solid $silver;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgb($primary, 0.5);
+      transition: 0.8s;
+    }
   }
 }

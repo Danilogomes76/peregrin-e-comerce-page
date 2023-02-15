@@ -93,3 +93,11 @@
   background-color: $secondary;
   color: white;
 }
+
+@media (width <= 1170px) {
+  .logo {
+    h1 {
+      display: none;
+    }
+  }
+}

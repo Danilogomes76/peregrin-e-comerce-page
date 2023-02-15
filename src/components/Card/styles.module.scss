@@ -137,3 +137,9 @@
     box-shadow: none;
   }
 }
+
+@media (width <= 450px) {
+  .container {
+    scale: 0.9;
+  }
+}

@@ -6,6 +6,9 @@
   margin-top: 96px;
   gap: 17px;
   margin-bottom: 140px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .container:has(.cardCategory:hover) .cardCategory:not(:hover) {

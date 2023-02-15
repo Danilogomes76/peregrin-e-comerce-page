@@ -39,7 +39,14 @@ const Contact: React.FC = () => {
                 cols={30}
                 rows={10}
               ></textarea>
-              <button type="submit">Submit</button>
+              <button
+                type="submit"
+                onClick={e => {
+                  console.log(e);
+                }}
+              >
+                Submit
+              </button>
             </fieldset>
           </form>
           <Image src={woman} alt="Woman Img" />

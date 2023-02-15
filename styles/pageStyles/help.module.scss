@@ -35,9 +35,8 @@
 
 .helpsCardBox {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  width: 72.4375rem;
   gap: 30px;
 }
 
@@ -46,7 +45,8 @@
 }
 
 .helpsCardBox:has(.hlpCard:hover) .hlpCard:not(:hover) {
-  animation: grayscaleDown 0.5s forwards;
+  background-color: rgb(208, 208, 208);
+  transition: 0.5s ease-in;
 }
 
 @keyframes ScaleUp {
@@ -65,15 +65,18 @@
     scale: 1;
   }
 }
-@keyframes grayscaleDown {
-  0% {
-    filter: grayscale(0%);
-    -webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
+@media (width <= 1170px) {
+  .searchHead {
+    input {
+      width: 70%;
+    }
   }
-  100% {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
+  .helpsCardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width <= 820px) {
+  .helpsCardBox {
+    grid-template-columns: 1fr;
   }
 }

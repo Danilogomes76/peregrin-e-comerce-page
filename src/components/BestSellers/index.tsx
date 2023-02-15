@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
-import Card from '../Card';
 import divisorLeft from '../../images/divider/divisor_left.svg';
 import divisorRight from '../../images/divider/divisor_right.svg';
+import Card from '../Card';
 
 import styles from './styles.module.scss';
 
