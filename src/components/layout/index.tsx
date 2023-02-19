@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { RangeProvider } from '../../context/RangeContext';
 import { useAppDispatch } from '../../hooks/reduceHooks';
+import { useBreakpoint } from '../../hooks/useBreakpoint';
 import { loadProducts } from '../../store/reducers/cartReducer';
 import { loadFavorite } from '../../store/reducers/favoriteReducer';
 import Footer from '../Footer';
@@ -14,20 +16,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const dispatch = useAppDispatch();
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 1170) {
-        setIsSmallScreen(true);
-      } else {
-        setIsSmallScreen(false);
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const breakPoint = useBreakpoint(1170);
 
   useEffect(() => {
     dispatch(loadProducts());
@@ -36,21 +25,22 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <>
-      {isSmallScreen ? <MobileHeader /> : <Header />}
-
-      {children}
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        theme="dark"
-      />
+      <RangeProvider>
+        {breakPoint ? <MobileHeader /> : <Header />}
+        {children}
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover={false}
+          theme="dark"
+        />
+      </RangeProvider>
       <Footer />
     </>
   );

@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
-import Link from 'next/link';
-import styles from './styles.module.scss';
-import filterIcon from '../../images/filterIcon.svg';
-import Image from 'next/image';
-import { useState } from 'react';
 import { animated, useSpring } from '@react-spring/web';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import filterIcon from '../../images/filterIcon.svg';
+import styles from './styles.module.scss';
 
 interface Props {
   rangeValue: number;

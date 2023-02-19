@@ -1,8 +1,10 @@
 @import '../../../styles/variables.module.scss';
 
 .container {
+  display: flex;
   background-color: $primary;
   padding: 0.5rem;
+  justify-content: space-between;
 
   button {
     background-color: transparent;
@@ -13,4 +15,8 @@
 .navBar {
   background-color: $secondary;
   height: 100%;
+}
+
+.triangle {
+  margin-right: 0.5rem;
 }

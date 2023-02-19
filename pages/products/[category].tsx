@@ -2,9 +2,11 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useContext } from 'react';
 import NavFilterBar from '../../src/components/NavFilterBar';
 import ProductsItems from '../../src/components/ProductsItems';
+import { RangeContext } from '../../src/context/RangeContext';
+import { useBreakpoint } from '../../src/hooks/useBreakpoint';
 import { ApiResponse } from '../../src/interface/apiInterface';
 import styles from '../../styles/pageStyles/products.module.scss';
 
@@ -45,11 +47,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 const Products: React.FC<Props> = ({ dataItems }: Props) => {
-  const [rangeValue, setRangeValue] = useState(1000);
-
-  function handleChange(event: any) {
-    setRangeValue(event.target.value);
-  }
+  const { handleChange, rangeValue } = useContext(RangeContext);
+  const breakPoint = useBreakpoint(990);
 
   return (
     <>
@@ -57,7 +56,9 @@ const Products: React.FC<Props> = ({ dataItems }: Props) => {
         <title>Peregrin Products</title>
       </Head>
       <main className={styles.container}>
-        <NavFilterBar rangeValue={rangeValue} onChange={handleChange} />
+        {breakPoint == false && (
+          <NavFilterBar rangeValue={rangeValue} onChange={handleChange} />
+        )}
         <ProductsItems rangeValue={rangeValue} data={dataItems} />
       </main>
     </>

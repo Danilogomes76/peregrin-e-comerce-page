@@ -59,3 +59,52 @@
 .Mrgl {
   margin-left: 10px;
 }
+
+@media (max-width: 990px) {
+  .container {
+    background-color: $primary;
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    gap: 1rem;
+
+    ul {
+      margin: 10px 0px 0px 0px;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    li {
+      font-size: 1em;
+    }
+  }
+
+  .filter {
+    position: static;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 0px;
+  }
+
+  .filterContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+      margin-right: 0px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .filter {
+    padding: 10px;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+  }
+}

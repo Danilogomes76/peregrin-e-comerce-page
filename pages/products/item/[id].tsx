@@ -1,19 +1,14 @@
 /* eslint-disable no-constant-condition */
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useCartActions } from '../../../src/hooks/useCartActions';
+import { useStarsNumber } from '../../../src/hooks/useStar';
+import starImg from '../../../src/images/star.svg';
 import { ApiResponse } from '../../../src/interface/apiInterface';
 import styles from '../../../styles/pageStyles/itemPage.module.scss';
-import starImg from '../../../src/images/star.svg';
-import { useStarsNumber } from '../../../src/hooks/useStar';
-import {
-  notifyAddToCart,
-  notifyAlredyInCart,
-} from '../../../src/notifys/notifys';
-import { addToCart } from '../../../src/store/reducers/cartReducer';
-import { useAppDispatch, useAppSelector } from '../../../src/hooks/reduceHooks';
 
 interface Props {
   dataItem: ApiResponse;
@@ -63,23 +58,7 @@ const Product = ({ dataItem }: Props) => {
 
   const starsNumber = useStarsNumber(dataItem.rating?.rate);
 
-  const { data } = useAppSelector(state => state.cart);
-  const dispatch = useAppDispatch();
-
-  const addInCart = (card: any) => {
-    if (data.some(i => i.id == card.id)) {
-      notifyAlredyInCart();
-      return;
-    }
-    dispatch(
-      addToCart({
-        ...card,
-        quantity: 1,
-        quantityPrice: card.price,
-      }),
-    );
-    notifyAddToCart();
-  };
+  const { addInCart } = useCartActions();
 
   return (
     <>
