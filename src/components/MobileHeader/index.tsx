@@ -31,6 +31,8 @@ const MobileHeader: React.FC = () => {
     rotate: dropDown ? '-180deg' : '0deg',
   });
 
+  router.events.on('routeChangeStart', () => setDropdown(false));
+
   return (
     <>
       <div className={styles.container}>
