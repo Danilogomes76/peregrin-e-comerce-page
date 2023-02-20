@@ -24,7 +24,7 @@ const About: React.FC = () => {
           </p>
         </section>
         <section className={styles.logo}>
-          <Image src={logo} alt="Logo" />
+          <Image src={logo} alt="Logo" fill />
         </section>
       </main>
     </>

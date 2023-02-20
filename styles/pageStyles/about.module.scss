@@ -5,6 +5,7 @@
   display: flex;
   gap: 22px;
   justify-content: center;
+  align-items: center;
   margin: 120px 0px;
 }
 
@@ -25,6 +26,7 @@
 }
 
 .logo {
+  position: relative;
   width: 512px;
   height: 512px;
   background-color: $secondary;
@@ -35,5 +37,27 @@
 
   img {
     opacity: 0.5;
+  }
+}
+
+@media (width <= 1214px) {
+  .logo {
+    width: 300px;
+    height: 300px;
+  }
+}
+@media (width <= 990px) {
+  .container {
+    flex-direction: column;
+    margin: initial;
+    margin-bottom: 4rem;
+  }
+
+  .apresentation {
+    padding: 2rem;
+
+    p {
+      width: initial;
+    }
   }
 }

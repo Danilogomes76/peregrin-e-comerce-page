@@ -1,3 +1,4 @@
+import { animated, useSpring } from '@react-spring/web';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -16,11 +17,19 @@ const MobileHeader: React.FC = () => {
   const toggleDrawer = () => {
     setIsOpen(prevState => !prevState);
   };
-  const [dropDown, setDropdown] = useState(false);
-
   const router = useRouter();
   const breakPoint = useBreakpoint(990);
   const { handleChange, rangeValue } = useContext(RangeContext);
+
+  const [dropDown, setDropdown] = useState(false);
+
+  const dropdownAnimationOpen = useSpring({
+    height: dropDown ? '214px' : '0px',
+  });
+
+  const buttonRotateOpen = useSpring({
+    rotate: dropDown ? '-180deg' : '0deg',
+  });
 
   return (
     <>
@@ -50,16 +59,21 @@ const MobileHeader: React.FC = () => {
           </section>
         </Drawer>
         {router.pathname == '/products/[category]' && breakPoint && (
-          <button
+          <animated.button
+            style={buttonRotateOpen}
             className={styles.triangle}
             onClick={() => setDropdown(!dropDown)}
           >
             <Image src={triangle} width={20} height={20} alt="logo" />
-          </button>
+          </animated.button>
         )}
       </div>
       {dropDown && (
-        <NavFilterBar onChange={handleChange} rangeValue={rangeValue} />
+        <NavFilterBar
+          stylesAnimate={dropdownAnimationOpen}
+          onChange={handleChange}
+          rangeValue={rangeValue}
+        />
       )}
     </>
   );

@@ -9,9 +9,14 @@ import styles from './styles.module.scss';
 interface Props {
   rangeValue: number;
   onChange: any;
+  stylesAnimate?: any;
 }
 
-const NavFilterBar: React.FC<Props> = ({ onChange, rangeValue }: Props) => {
+const NavFilterBar: React.FC<Props> = ({
+  onChange,
+  rangeValue,
+  stylesAnimate,
+}: Props) => {
   const [visibleFilter, setVisibleFilter] = useState(false);
 
   const [spring, api] = useSpring(() => ({
@@ -37,7 +42,7 @@ const NavFilterBar: React.FC<Props> = ({ onChange, rangeValue }: Props) => {
   };
 
   return (
-    <section className={styles.container}>
+    <animated.section style={stylesAnimate} className={styles.container}>
       <ul>
         <Link href="/products/all">
           <li className={styles.Mrgl}>All products</li>
@@ -77,7 +82,7 @@ const NavFilterBar: React.FC<Props> = ({ onChange, rangeValue }: Props) => {
           </p>
         </animated.div>
       </div>
-    </section>
+    </animated.section>
   );
 };
 
