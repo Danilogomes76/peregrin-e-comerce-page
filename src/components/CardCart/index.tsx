@@ -41,9 +41,7 @@ const CardCart: React.FC<Props> = ({
           <Image src={image} alt={title} width={80} height={80} />
           <div className={styles.titleBox}>
             <Link href={`/products/item/${id}`}>
-              <p style={title.length > 38 ? { fontSize: '11px' } : undefined}>
-                {title}
-              </p>
+              <p>{title}</p>
             </Link>
             <button onClick={() => removeFromCart(id)}>Remove</button>
           </div>

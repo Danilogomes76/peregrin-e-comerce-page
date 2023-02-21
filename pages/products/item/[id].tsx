@@ -67,13 +67,8 @@ const Product = ({ dataItem }: Props) => {
       </Head>
       <main>
         <section className={styles.container}>
-          <div>
-            <Image
-              src={dataItem.image}
-              alt={dataItem.title}
-              width={635}
-              height={635}
-            />
+          <div className={styles.imgBox}>
+            <Image src={dataItem.image} alt={dataItem.title} fill />
           </div>
           <div className={styles.textContainer}>
             <div className={styles.priceContainer}>

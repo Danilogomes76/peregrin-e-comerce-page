@@ -93,4 +93,22 @@
       scale: 0.7;
     }
   }
+
+  .social {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    p {
+      margin: initial;
+    }
+  }
+
+  .socialIcons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    img {
+      margin: initial;
+    }
+  }
 }

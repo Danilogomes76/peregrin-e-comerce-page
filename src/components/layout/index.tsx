@@ -16,7 +16,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const dispatch = useAppDispatch();
-  const breakPoint = useBreakpoint(1170);
+  const breakPoint = useBreakpoint(1169);
 
   useEffect(() => {
     dispatch(loadProducts());

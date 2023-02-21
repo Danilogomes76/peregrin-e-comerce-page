@@ -49,7 +49,9 @@ const Contact: React.FC = () => {
               </button>
             </fieldset>
           </form>
-          <Image src={woman} alt="Woman Img" />
+          <section className={styles.imgBox}>
+            <Image src={woman} alt="Woman Img" fill />
+          </section>
         </section>
       </main>
     </>

@@ -78,3 +78,70 @@
     }
   }
 }
+
+.imgBox {
+  position: relative;
+  width: 100%;
+  height: 33.125rem;
+}
+
+@media (width <= 1260px) {
+  .sectionContact {
+    padding: initial;
+    width: initial;
+    padding: 45px 80px;
+
+    form {
+      padding: 2rem;
+    }
+  }
+}
+
+@media (width <= 990px) {
+  .sectionContact {
+    flex-direction: column;
+    background-color: initial;
+    padding: initial;
+    gap: 2.5rem;
+
+    img {
+      background-color: $primary;
+      border-radius: 12%;
+      padding: 2rem;
+    }
+
+    form {
+      width: 100%;
+
+      button {
+        width: 6.25rem;
+        padding: 10px 0px;
+      }
+    }
+  }
+}
+
+@media (width <= 450px) {
+  .container {
+    margin: 2rem;
+  }
+  .sectionContact {
+    width: 100%;
+    margin: initial;
+
+    form {
+      p {
+        width: initial;
+      }
+
+      textarea {
+        padding: initial;
+        width: 100%;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -95,6 +95,9 @@
 }
 
 @media (width <= 1170px) {
+  .container {
+    visibility: hidden;
+  }
   .logo {
     h1 {
       display: none;

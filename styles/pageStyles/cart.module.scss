@@ -11,3 +11,15 @@
   flex-direction: column;
   gap: 34px;
 }
+
+@media (width <= 1300px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  .items {
+    width: 90%;
+    align-items: center;
+  }
+}

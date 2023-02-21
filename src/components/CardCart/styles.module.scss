@@ -35,14 +35,16 @@
   align-items: flex-start;
   justify-content: space-between;
   p {
+    font-size: 0.8rem;
     font-weight: bold;
+    width: 250px;
   }
 
   button {
     background: transparent;
     border: none;
     font-size: 15px;
-    color: $silver;
+    color: rgb(255 0 0 / 78%);
     cursor: pointer;
   }
 }
@@ -50,6 +52,8 @@
 .quantityPriceBox {
   display: flex;
   gap: 33px;
+  flex-wrap: wrap;
+  justify-content: center;
 
   p {
     font-weight: bold;
@@ -104,5 +108,61 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+  }
+}
+
+@media (width <= 1300px) {
+  .content {
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+@media (width <= 700px) {
+  .container {
+    height: initial;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .nameAndImg {
+    align-items: center;
+  }
+
+  .titleBox {
+    gap: 1rem;
+
+    p {
+      font-weight: bold;
+      font-size: 10px;
+    }
+  }
+
+  .quantityPriceBox {
+    width: 100%;
+    justify-content: space-around;
+    .price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+
+      :nth-child(2) {
+        margin: initial;
+        font-weight: lighter;
+      }
+    }
+  }
+}
+
+@media (width <= 450px) {
+  .titleBox {
+    p {
+      font-weight: bold;
+      white-space: nowrap;
+      width: 175px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
